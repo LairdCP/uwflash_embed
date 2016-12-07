@@ -1,0 +1,21 @@
+# Project specific build directories
+*.~*
+obj/*
+ConWinBB/obj/*
+ConWinBB/target/*UartFlashCon.exe
+ConWinBB/target/*.tds
+target/B*Upgrade.exe
+target/*.zip
+target/*.uwf
+*.ddp
+*.ncb
+*.suo
+*.user
+ConWinBB/MarshallSoft/*
+*.obj
+*.idb
+*.pdb
+*.embed.manifest
+Buildlog.htm
+
+

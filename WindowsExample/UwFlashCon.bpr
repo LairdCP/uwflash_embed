@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="target\UwFlashCon.exe"/>
+    <OBJFILES value="obj\UwFlashCon.obj obj\TSerialPortTarget.obj obj\BlrPublicUwFlashi.obj 
+      obj\FrmPrivate.obj obj\FrmPublic.obj obj\RbfPublic.obj obj\UwgPublic.obj 
+      obj\AtUpgradeUI.obj obj\BlrPublicUwFlash.obj obj\Misc.obj 
+      obj\TBootLdrAtmel91.obj obj\TBootLdrBase.obj obj\TBootLdrPreProcess.obj 
+      obj\TBootLdrProtV3.obj obj\TSerialPortBase.obj obj\TTestBase.obj 
+      obj\TTestNone.obj obj\UwfUpgrade.obj obj\AtConfig.obj 
+      obj\TBootLdrBL65X.obj obj\AtUpgradeUITarget.obj obj\TSerialPortTargetEx.obj 
+      obj\Assert_UwFlash.obj obj\UwFlashEmbed.obj obj\UwflashTarget.obj 
+      obj\TBootLdrBL6XX.obj"/>
+    <RESFILES value="UwFlashCon.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value="rtl.lib"/>
+    <PACKAGES value="vcl.bpi rtl.bpi vclx.bpi bcbsmp.bpi dbrtl.bpi adortl.bpi vcldb.bpi 
+      qrpt.bpi bdertl.bpi vcldbx.bpi dsnap.bpi cds.bpi bdecds.bpi teeui.bpi 
+      teedb.bpi tee.bpi teeqr.bpi ibxpress.bpi visualclx.bpi visualdbclx.bpi 
+      vclie.bpi xmlrtl.bpi inet.bpi inetdbbde.bpi inetdbxpress.bpi inetdb.bpi 
+      nmfast.bpi bcbie.bpi soaprtl.bpi dclocx.bpi dbexpress.bpi dbxcds.bpi 
+      indy.bpi bcb2kaxserver.bpi A406_R61.bpi"/>
+    <PATHCPP value=".;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\WirelessModule;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\WirelessModule"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT;_RTLDLL;USEPACKAGES"/>
+    <MAINSOURCE value="UwFlashCon.bpf"/>
+    <INCLUDEPATH value=".\ConWinBB;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Vcl\APRO\v4.07\source;..\SourceLibrary;..\WirelessModule"/>
+    <LIBPATH value="..\WirelessModule;..\SourceLibrary;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-Od -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -tWC -tWM -c"/>
+    <PFLAGS value="-N2obj -N0obj -$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-Iobj -D&quot;&quot; -ap -Tpe -x -Gn -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0x32.obj $(PACKAGES) Memmgr.Lib sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="UwFlashCon.res" FORMNAME="" UNITNAME="UwFlashCon.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UwFlashCon.bpf" FORMNAME="" UNITNAME="UwFlashCon" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UwFlashCon.cpp" FORMNAME="" UNITNAME="UwFlashCon" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TSerialPortTarget.cpp" FORMNAME="" UNITNAME="TSerialPortTarget" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\BlrPublicUwFlashi.c" FORMNAME="" UNITNAME="BlrPublicUwFlashi.c" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\FrmPrivate.c" FORMNAME="" UNITNAME="FrmPrivate.c" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\FrmPublic.c" FORMNAME="" UNITNAME="FrmPublic.c" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\RbfPublic.c" FORMNAME="" UNITNAME="RbfPublic.c" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\UwgPublic.c" FORMNAME="" UNITNAME="UwgPublic.c" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\AtUpgradeUI.cpp" FORMNAME="" UNITNAME="AtUpgradeUI.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\BlrPublicUwFlash.cpp" FORMNAME="" UNITNAME="BlrPublicUwFlash.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\Misc.cpp" FORMNAME="" UNITNAME="Misc.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\TBootLdrAtmel91.cpp" FORMNAME="" UNITNAME="TBootLdrAtmel91.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\TBootLdrBase.cpp" FORMNAME="" UNITNAME="TBootLdrBase.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\TBootLdrPreProcess.cpp" FORMNAME="" UNITNAME="TBootLdrPreProcess.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\TBootLdrProtV3.cpp" FORMNAME="" UNITNAME="TBootLdrProtV3.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\TSerialPortBase.cpp" FORMNAME="" UNITNAME="TSerialPortBase.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\TTestBase.cpp" FORMNAME="" UNITNAME="TTestBase.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\TTestNone.cpp" FORMNAME="" UNITNAME="TTestNone.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\UwfUpgrade.cpp" FORMNAME="" UNITNAME="UwfUpgrade.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\AtConfig.cpp" FORMNAME="" UNITNAME="AtConfig" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\WirelessModule\TBootLdrBL65X.cpp" FORMNAME="" UNITNAME="TBootLdrBL65X" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="AtUpgradeUITarget.cpp" FORMNAME="" UNITNAME="AtUpgradeUITarget" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\TSerialPortTargetEx.cpp" FORMNAME="" UNITNAME="TSerialPortTargetEx" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\Assert_UwFlash.c" FORMNAME="" UNITNAME="Assert_UwFlash" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\SourceLibrary\UwFlashEmbed.cpp" FORMNAME="" UNITNAME="UwFlashEmbed" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="UwflashTarget.cpp" FORMNAME="" UNITNAME="UwflashTarget" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\WirelessModule\TBootLdrBL6XX.cpp" FORMNAME="" UNITNAME="TBootLdrBL6XX" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=2057
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+c:\borland\cbuilder6\Bin\dclite60.bpl=Borland Integrated Translation Environment
+
+[HistoryLists\hlIncludePath]
+Count=4
+Item0=.\ConWinBB;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Vcl\APRO\v4.07\source;..\SourceLibrary;..\WirelessModule
+Item1=.\ConWinBB;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Vcl\APRO\v4.07\source;..\SourceLibrary
+Item2=$(BCB)\include;$(BCB)\include\vcl
+Item3=$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=4
+Item0=..\WirelessModule;..\SourceLibrary;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item1=..\SourceLibrary;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item2=$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item3=$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=1
+Item0=obj
+
+[HistoryLists\hlFinalOutputDir]
+Count=2
+Item0=target\
+Item1=target
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=TGT=BL65X UWF=BL652_SD_APP_magic_921K.uwf COM=26
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+  </IDEOPTIONS>
+</PROJECT>

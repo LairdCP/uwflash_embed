@@ -49,6 +49,9 @@ typedef enum
    ,TARGET_BL65X                    /* Any BL65x based hardware*/
    ,TARGET_RM1XX_PE                 /* LoRa - Peripheral BLE Role */
 
+   ,TARGET_BL600
+   ,TARGET_BL620
+
    ,TARGET_PREPROCESS_MASK          = 0x8000
    ,TARGET_UNKNOWN                  = 0xFFFF
 }

@@ -40,6 +40,9 @@
 // External Variable Declarations
 /******************************************************************************/
 
+extern int gArgc;
+extern char **gArgv;
+
 /******************************************************************************/
 // Global/Static Variable Declarations
 /******************************************************************************/
@@ -135,7 +138,17 @@ TSerialPortTarget::ComOpen(
     )
 {
     bool fRetVal = false; //assume cannot open the port
-    int nComport = atoi(pDevName);
+    int nComport=0;
+
+    //if second paramter existed in command line that it has to be the comport name
+    if( gArgc >= 2 )
+    {
+        nComport = atoi(gArgv[1]);
+    }
+    if((nComport <=0)||(nComport >255))
+    {
+        nComport = atoi(pDevName);
+    }
 
     try
     {

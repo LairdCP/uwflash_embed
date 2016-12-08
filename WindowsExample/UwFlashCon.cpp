@@ -45,6 +45,9 @@
 // Global/Static Variable Declarations
 /******************************************************************************/
 
+int gArgc;
+char **gArgv;
+
 /******************************************************************************/
 // External Function Declarations
 /******************************************************************************/
@@ -72,7 +75,13 @@
 int main(int argc, char* argv[])
 {
     unsigned int nElapsed;
-    unsigned int nStartTick = MiscGetTickCount();
+    unsigned int nStartTick;
+
+    gArgc=argc;
+    gArgv=argv;
+
+    nStartTick = MiscGetTickCount();
+
     /* go for upgrade ... */
     UwFlashUpgradeFirmare();
     nElapsed   = MiscElapsedTime(nStartTick)/1000;

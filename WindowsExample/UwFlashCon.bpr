@@ -12,7 +12,8 @@
       obj\TTestNone.obj obj\UwfUpgrade.obj obj\AtConfig.obj 
       obj\TBootLdrBL65X.obj obj\AtUpgradeUITarget.obj obj\TSerialPortTargetEx.obj 
       obj\Assert_UwFlash.obj obj\UwFlashEmbed.obj obj\UwflashTarget.obj 
-      obj\TBootLdrBL6XX.obj"/>
+      obj\TBootLdrBL6XX.obj obj\TBootLdrBT900.obj obj\TBootLdrRM1XX.obj 
+      obj\TBootLdrRM1XX_PE.obj obj\TBootLdrBL620.obj"/>
     <RESFILES value="UwFlashCon.res"/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES)"/>
@@ -25,7 +26,7 @@
       vclie.bpi xmlrtl.bpi inet.bpi inetdbbde.bpi inetdbxpress.bpi inetdb.bpi 
       nmfast.bpi bcbie.bpi soaprtl.bpi dclocx.bpi dbexpress.bpi dbxcds.bpi 
       indy.bpi bcb2kaxserver.bpi A406_R61.bpi"/>
-    <PATHCPP value=".;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\WirelessModule;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\WirelessModule"/>
+    <PATHCPP value=".;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\WirelessModule;..\SourceLibrary;..\SourceLibrary;..\SourceLibrary;..\WirelessModule;..\WirelessModule;..\WirelessModule;..\WirelessModule;..\WirelessModule"/>
     <PATHPAS value=".;"/>
     <PATHRC value=".;"/>
     <PATHASM value=".;"/>
@@ -83,6 +84,10 @@
       <FILE FILENAME="..\SourceLibrary\UwFlashEmbed.cpp" FORMNAME="" UNITNAME="UwFlashEmbed" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="UwflashTarget.cpp" FORMNAME="" UNITNAME="UwflashTarget" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="..\WirelessModule\TBootLdrBL6XX.cpp" FORMNAME="" UNITNAME="TBootLdrBL6XX" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\WirelessModule\TBootLdrBT900.cpp" FORMNAME="" UNITNAME="TBootLdrBT900" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\WirelessModule\TBootLdrRM1XX.cpp" FORMNAME="" UNITNAME="TBootLdrRM1XX.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\WirelessModule\TBootLdrRM1XX_PE.cpp" FORMNAME="" UNITNAME="TBootLdrRM1XX_PE.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\WirelessModule\TBootLdrBL620.cpp" FORMNAME="" UNITNAME="TBootLdrBL620" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>
@@ -153,7 +158,7 @@ Item1=target
 DebugSourceDirs=$(BCB)\source\vcl
 
 [Parameters]
-RunParams=TGT=BL65X UWF=BL652_SD_APP_magic_921K.uwf COM=26
+RunParams=14
 Launcher=
 UseLauncher=0
 DebugCWD=

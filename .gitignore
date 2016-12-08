@@ -17,5 +17,7 @@ ConWinBB/MarshallSoft/*
 *.pdb
 *.embed.manifest
 Buildlog.htm
+WindowsExample/target/*.zip
+
 
 

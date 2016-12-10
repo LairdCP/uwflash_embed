@@ -18,6 +18,8 @@ ConWinBB/MarshallSoft/*
 *.embed.manifest
 Buildlog.htm
 WindowsExample/target/*.zip
+WindowsExample/obj/UwFlashCon.*
+WindowsExample/target/*.tds
 
 
 

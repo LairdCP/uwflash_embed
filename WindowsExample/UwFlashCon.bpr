@@ -34,7 +34,7 @@
     <RELEASELIBPATH value="$(BCB)\lib\release"/>
     <LINKER value="ilink32"/>
     <USERDEFINES value="_DEBUG"/>
-    <SYSDEFINES value="NO_STRICT;_RTLDLL;USEPACKAGES"/>
+    <SYSDEFINES value="NO_STRICT;USEPACKAGES"/>
     <MAINSOURCE value="UwFlashCon.bpf"/>
     <INCLUDEPATH value=".\ConWinBB;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\Vcl\APRO\v4.07\source;..\SourceLibrary;..\WirelessModule"/>
     <LIBPATH value="..\WirelessModule;..\SourceLibrary;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib"/>
@@ -43,16 +43,16 @@
   </MACROS>
   <OPTIONS>
     <CFLAG1 value="-Od -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -tWC -tWM -c"/>
-    <PFLAGS value="-N2obj -N0obj -$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <PFLAGS value="-N2obj -N0obj -$Y+ -$W -$O- -$A8 -v -JPHNE -M"/>
     <RFLAGS value=""/>
     <AFLAGS value="/mx /w2 /zi"/>
-    <LFLAGS value="-Iobj -D&quot;&quot; -ap -Tpe -x -Gn -v"/>
+    <LFLAGS value="-Iobj -D&quot;&quot; -ap -Tpe -x -v"/>
     <OTHERFILES value=""/>
   </OPTIONS>
   <LINKER>
-    <ALLOBJ value="c0x32.obj $(PACKAGES) Memmgr.Lib sysinit.obj $(OBJFILES)"/>
+    <ALLOBJ value="c0x32.obj $(PACKAGES) sysinit.obj $(OBJFILES)"/>
     <ALLRES value="$(RESFILES)"/>
-    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
     <OTHERFILES value=""/>
   </LINKER>
   <FILELIST>
@@ -158,7 +158,7 @@ Item1=target
 DebugSourceDirs=$(BCB)\source\vcl
 
 [Parameters]
-RunParams=14
+RunParams=16
 Launcher=
 UseLauncher=0
 DebugCWD=

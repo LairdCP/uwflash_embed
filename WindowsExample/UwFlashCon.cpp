@@ -80,13 +80,26 @@ int main(int argc, char* argv[])
     gArgc=argc;
     gArgv=argv;
 
-    nStartTick = MiscGetTickCount();
+    if( argc < 2 )
+    {
+        printf("\nUsage: UwFlashCon NN <Filename.uwf>");
+        printf("\n         where NN is the comport number");
+        printf("\n         where <Filename.uwf> is the optional name of the .uwf file");
+        printf("\n               and default will be = %s",UWF_FILENAME);
+        printf("\n\nPlatform = %s\n",TARGET_PLATFORM_STR);
+    }
+    else
+    {
+        printf("\nPlatform = %s",TARGET_PLATFORM_STR);
 
-    /* go for upgrade ... */
-    UwFlashUpgradeFirmare();
-    nElapsed   = MiscElapsedTime(nStartTick)/1000;
+        nStartTick = MiscGetTickCount();
 
-    printf("\nTime=%d seconds",nElapsed);
+        /* go for upgrade ... */
+        UwFlashUpgradeFirmare();
+        nElapsed   = MiscElapsedTime(nStartTick)/1000;
+
+        printf("\nTime=%d seconds",nElapsed);
+    }
 
     return 0;
 }

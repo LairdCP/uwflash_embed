@@ -43,6 +43,9 @@
 // External Variable Declarations
 /******************************************************************************/
 
+extern int gArgc;
+extern char **gArgv;
+
 /******************************************************************************/
 // Global/Static Variable Declarations
 /******************************************************************************/
@@ -118,6 +121,11 @@ StdFOPEN (
     const char * mode
     )
 {
+    if(gArgc >= 3)
+    {
+        //the second argument can be a filename
+        return fopen(gArgv[2],"rb");
+    }
     return fopen(UWF_FILENAME,"rb");
 }
 

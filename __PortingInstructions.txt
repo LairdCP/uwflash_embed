@@ -91,6 +91,17 @@ that file but in the Target.h do as follows:-
 #undef UWF_FIRMWAREFILE_MAX_LINE_LEN
 #define UWF_FIRMWAREFILE_MAX_LINE_LEN  (some_new_value)
 
+********************************
+Files to include in your project
+********************************
+
+  (*) All .cpp and .c files in folder 'SourceLibrary'
+  (*) TargetEmbed.h & one of TBootLdr?????.cpp from folder 'WirelessModule'
+  (*) Copy all files from folder 'HostTemplate' into a folder of your choice
+      and then update them. Look for the text "TODO" in all these files
+      as that is where you will need to add your code that provides uart
+      and file read access.
+
 *****************
 Testing
 *****************

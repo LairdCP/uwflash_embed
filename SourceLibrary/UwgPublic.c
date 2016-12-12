@@ -1,13 +1,30 @@
-/******************************************************************************
-**              Copyright (C) 2005 Ezurio Ltd
-**
-** Project:     Universal Wireless
-**
-** Module:		UWGPUBLIC.C
-**
-** Notes:       Contains the public interface to the run time engine
-**
-*******************************************************************************/
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Copyright (c) 2016, Laird                                                  ++
+//                                                                            ++
+// Permission to use, copy, modify, and/or distribute this software for any   ++
+// purpose with or without fee is hereby granted, provided that the above     ++
+// copyright notice and this permission notice appear in all copies.          ++
+//                                                                            ++
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES   ++
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF           ++
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR    ++
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES     ++
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN      ++
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR ++
+// IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                ++
+//                                                                            ++
+// SPDX-License-Identifier:ISC                                                ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                                                                            ++
+// Source to embed firmware upgrader functionality into a host system which   ++
+// interacts with specific Laird modules. The host can be a microcontroller   ++
+// or full blown OS based PC like Windows/Linex/Mac or other.                 ++
+//                                                                            ++
+// The source requires a C++ compiler and has been used to create utilities   ++
+// supplied by Laird.                                                         ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 /******************************************************************************/
 /* Target Build Definition Header File */
@@ -117,7 +134,7 @@ UwgCheckedReadDWORD(
 /*=============================================================================*/
 /*=============================================================================*/
 #if defined(UWG_HEAP_DATA_ALLOC_FREE_CHECK)
-STATIC VOID * 
+STATIC VOID *
 UwgCheckedMallocMonitor(
     UI32 size,
     BOOLEAN fMonitor
@@ -174,7 +191,7 @@ UwgCheckedMallocMonitor(
 /*=============================================================================*/
 /*=============================================================================*/
 #if defined(UWG_HEAP_DATA_ALLOC_FREE_CHECK)
-VOID * 
+VOID *
 UwgCheckedMalloc(
     UI32 size
     )
@@ -201,7 +218,7 @@ UwgCheckedMalloc(
 /*=============================================================================*/
 /*=============================================================================*/
 #if defined(UWG_HEAP_DATA_ALLOC_FREE_CHECK)
-VOID * 
+VOID *
 UwgCheckedMallocNoMaxCheck(
     UI32 size
     )
@@ -213,7 +230,7 @@ UwgCheckedMallocNoMaxCheck(
 /*=============================================================================*/
 /*=============================================================================*/
 #if defined(UWG_HEAP_DATA_ALLOC_FREE_CHECK)
-VOID 
+VOID
 UwgCheckedFree(
     VOID *pMemBlock
     )

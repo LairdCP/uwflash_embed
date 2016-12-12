@@ -1,13 +1,30 @@
-/******************************************************************************
-**              Copyright (C) 2005 Ezurio Ltd
-**
-** Project:     Universal Wireless
-**
-** Module:		RBFPUBLIC.C
-**
-** Notes:
-**
-*******************************************************************************/
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Copyright (c) 2016, Laird                                                  ++
+//                                                                            ++
+// Permission to use, copy, modify, and/or distribute this software for any   ++
+// purpose with or without fee is hereby granted, provided that the above     ++
+// copyright notice and this permission notice appear in all copies.          ++
+//                                                                            ++
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES   ++
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF           ++
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR    ++
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES     ++
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN      ++
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR ++
+// IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                ++
+//                                                                            ++
+// SPDX-License-Identifier:ISC                                                ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                                                                            ++
+// Source to embed firmware upgrader functionality into a host system which   ++
+// interacts with specific Laird modules. The host can be a microcontroller   ++
+// or full blown OS based PC like Windows/Linex/Mac or other.                 ++
+//                                                                            ++
+// The source requires a C++ compiler and has been used to create utilities   ++
+// supplied by Laird.                                                         ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 /******************************************************************************/
 /* Target Build Definition Header File */
@@ -312,7 +329,7 @@ RbfPubRingBufferPrintf(
 /* Case Sensitive                                                            */
 /*=============================================================================*/
 #if defined(ON_SUBTARGET_PCSCRIPT) || defined(PPR_ENABLE_PREPARSER)
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufCmpWithChar(
     SRbfRingBuffer *pRingBuf,
     CONST CHAR *pSrc
@@ -321,7 +338,7 @@ RbfPubRingBufCmpWithChar(
     UI8  *pRing = pRingBuf->mBuffer[0].u.mpuData;
     UI16 nLen   = pRingBuf->mBuffer[0].mnLen;
 
-    if( (nLen==0) && (*pSrc) ) return FALSE; 
+    if( (nLen==0) && (*pSrc) ) return FALSE;
     while(nLen--)
     {
         if( (*pSrc++) != (*pRing++) )
@@ -332,7 +349,7 @@ RbfPubRingBufCmpWithChar(
 
     pRing  = pRingBuf->mBuffer[1].u.mpuData;
     nLen   = pRingBuf->mBuffer[1].mnLen;
-    if( (nLen==0) && (*pSrc) ) return FALSE; 
+    if( (nLen==0) && (*pSrc) ) return FALSE;
     while(nLen--)
     {
         if( (*pSrc++) != (*pRing++) )
@@ -350,7 +367,7 @@ RbfPubRingBufCmpWithChar(
 /* Returns true if the data in pRingBuf matches that in pSrc                   */
 /* Case Insensitive                                                            */
 /*=============================================================================*/
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufCmpiWithChar(
     SRbfRingBuffer *pRingBuf,
     CONST CHAR *pSrc
@@ -359,7 +376,7 @@ RbfPubRingBufCmpiWithChar(
     UI8  *pRing = pRingBuf->mBuffer[0].u.mpuData;
     UI16 nLen   = pRingBuf->mBuffer[0].mnLen;
 
-    if( (nLen==0) && (*pSrc) ) return FALSE; 
+    if( (nLen==0) && (*pSrc) ) return FALSE;
     while(nLen--)
     {
         if( StdTOUPPER(*pSrc++) != StdTOUPPER(*pRing++) )
@@ -370,7 +387,7 @@ RbfPubRingBufCmpiWithChar(
 
     pRing  = pRingBuf->mBuffer[1].u.mpuData;
     nLen   = pRingBuf->mBuffer[1].mnLen;
-    if( (nLen==0) && (*pSrc) ) return FALSE; 
+    if( (nLen==0) && (*pSrc) ) return FALSE;
     while(nLen--)
     {
         if( StdTOUPPER(*pSrc++) != StdTOUPPER(*pRing++) )
@@ -389,7 +406,7 @@ RbfPubRingBufCmpiWithChar(
 /* Case Insensitive                                                            */
 /*=============================================================================*/
 #if 0
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufCmpiWithCharLen(
     SRbfRingBuffer *pRingBuf,
     CONST CHAR *pSrc,
@@ -400,10 +417,10 @@ RbfPubRingBufCmpiWithCharLen(
     UI16 nLen   = pRingBuf->mBuffer[0].mnLen;
 
     /* if the lengths are not the same then they do not compare */
-    if( (nLen+pRingBuf->mBuffer[1].mnLen) != nSrcLen ) return FALSE; 
+    if( (nLen+pRingBuf->mBuffer[1].mnLen) != nSrcLen ) return FALSE;
 
     /* if both empty then they compare */
-    if( nSrcLen == 0 ) return TRUE; 
+    if( nSrcLen == 0 ) return TRUE;
 
     while(nSrcLen)
     {
@@ -416,7 +433,7 @@ RbfPubRingBufCmpiWithCharLen(
 
     /* If source string len is 0 then they compare */
     if(nSrcLen==0)return TRUE;
-    
+
     /* otherwise continue and compre with second buffer */
     pRing  = pRingBuf->mBuffer[1].u.mpuData;
     RbfASSERT3(pRing);
@@ -442,7 +459,7 @@ RbfPubRingBufCmpiWithCharLen(
 /* returns true if the character matches that in the ring buffer at the */
 /* position specified */
 /*=============================================================================*/
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufMatchByte(
     SRbfRingBuffer *pRingBuf,
     UI16 nPos, /* in ring buffer */
@@ -508,7 +525,7 @@ RbfPubRingBufMatchByte(
 /* Case Insensitive                                                            */
 /*=============================================================================*/
 #if 0 /* Because it is not used anywhere */
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufMatchSubString(
     SRbfRingBuffer *pRingBuf,
     UI16 nStartPos, /* in ring buffer */
@@ -569,7 +586,7 @@ RbfPubRingBufMatchSubString(
 /* returns true if the ring buffer is empty */
 /*=============================================================================*/
 #if 0
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufIsEmpty(
     SRbfRingBuffer *pRingBuf
     )

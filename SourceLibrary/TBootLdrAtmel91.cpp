@@ -1,11 +1,30 @@
-/******************************************************************************
-**              Copyright (C) 2007 TDK Systems Europe Ltd
-**
-** Project:     WIDM - Upgrade Class
-**
-** Module:      TBootLdrAtmel91.CPP
-**
-*******************************************************************************/
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Copyright (c) 2016, Laird                                                  ++
+//                                                                            ++
+// Permission to use, copy, modify, and/or distribute this software for any   ++
+// purpose with or without fee is hereby granted, provided that the above     ++
+// copyright notice and this permission notice appear in all copies.          ++
+//                                                                            ++
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES   ++
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF           ++
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR    ++
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES     ++
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN      ++
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR ++
+// IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                ++
+//                                                                            ++
+// SPDX-License-Identifier:ISC                                                ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                                                                            ++
+// Source to embed firmware upgrader functionality into a host system which   ++
+// interacts with specific Laird modules. The host can be a microcontroller   ++
+// or full blown OS based PC like Windows/Linex/Mac or other.                 ++
+//                                                                            ++
+// The source requires a C++ compiler and has been used to create utilities   ++
+// supplied by Laird.                                                         ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 /******************************************************************************/
 // CONDITIONAL COMPILE DEFINES
@@ -671,7 +690,7 @@ UWRESULTCODE TBootLdrAtmel91::UnregisterDevice(
     sprintf(mbaMessage,"Device=%u",nFlashDevice);
     UpgradeUI_Message_S(UNREGISTER_DEVICE, mbaMessage);
 #endif
-    
+
     if(nFlashDevice >= MAX_FLASH_DEVICES_IN_MODULE)
     {
         return UWRESULTCODE_UWF_INVALID_FLASH;
@@ -933,7 +952,7 @@ UWRESULTCODE TBootLdrAtmel91::WriteBlockFlash(
         nDataLen = nConsumeLen;
         StdMEMCPY(pWrite,pData,nConsumeLen);
         pWrite += nConsumeLen;
-        
+
         pData  += nConsumeLen;
         nBlockLenBytes -= nConsumeLen;
 
@@ -1069,7 +1088,7 @@ UWRESULTCODE TBootLdrAtmel91::VerifyBlockFlash(
 {
     UWRESULTCODE resultCode;
     UI32 nPhysAddr;
-    
+
     UwfASSERT3(nBlockLenBytes<=TXCACHE_SIZE);
 
 #if !defined(VERIFY_USING_READ)
@@ -1098,7 +1117,7 @@ UWRESULTCODE TBootLdrAtmel91::VerifyBlockFlash(
     {
         return UWRESULTCODE_UWF_WRITE_TOO_LARGE;
     }
-    
+
     //Send the READ message
     FlushRxTx();
     mTxCache[0]=mCmdId[ATMEL_MSGNDX_READ];
@@ -1190,7 +1209,7 @@ UWRESULTCODE TBootLdrAtmel91::WriteBlock(
 
     gUwfUpgrade.mOverallProgBytes +=  nBlockLenBytes;
     gpAtUpgradeUI->UpdateMainProgressBar(gUwfUpgrade.mOverallProgBytes);
-    
+
     return UWRESULTCODE_SUCCESS;
 }
 
@@ -1203,7 +1222,7 @@ UWRESULTCODE TBootLdrAtmel91::WriteBlockEnd(
 {
     //Hide the progress bar
     gpAtUpgradeUI->HideProgressBar();
-    
+
     return UWRESULTCODE_SUCCESS;
 }
 
@@ -1289,7 +1308,7 @@ UWRESULTCODE TBootLdrAtmel91::EraseBlock(
 
         gUwfUpgrade.mOverallProgBytes +=  ((nSectorSize * gAtConfig.mEraseDefEq)/gAtConfig.mEraseDefSize);
         gpAtUpgradeUI->UpdateMainProgressBar(gUwfUpgrade.mOverallProgBytes);
-        
+
         if( nSectorAddr < nAddrOffsetEnd )
         {
             resultCode = GetSectorStartAddress(pFlashDevice, nSectorAddr, &nSectorAddr, &nSectorSize);
@@ -1298,7 +1317,7 @@ UWRESULTCODE TBootLdrAtmel91::EraseBlock(
                 break;
             }
         }
-        
+
         //Update the progress bar
         gpAtUpgradeUI->UpdateProgressBar(nErasedCount);
     }
@@ -1405,7 +1424,7 @@ UWRESULTCODE TBootLdrAtmel91::AutoSelectBank(
     sprintf(mbaMessage,"%u",nFlashDevice);
     UpgradeUI_Message_S(AUTO_SELECT_BANK_FROM, mbaMessage);
 #endif
-    
+
     if(nFlashDevice >= MAX_FLASH_DEVICES_IN_MODULE)
     {
         return UWRESULTCODE_UWF_INVALID_FLASH;
@@ -1614,7 +1633,7 @@ UWRESULTCODE TBootLdrAtmel91::DoSynchronisation(void)
     {
         return resultCode;
     }
-    
+
     //Send an ACK
     FlushRxTx();
     mTxCache[0]=mCmdId[ATMEL_MSGNDX_ACK];
@@ -1644,7 +1663,7 @@ UWRESULTCODE TBootLdrAtmel91::WaitForQueryResp(UI32 nWaitMs)
     {
 #if DEBUGLEVEL >= 4
         OnUnexpectedMessage();
-#endif        
+#endif
         return UWRESULTCODE_UWF_NOT_QUERY_RESPONSE;
     }
 

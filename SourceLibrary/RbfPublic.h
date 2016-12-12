@@ -1,13 +1,30 @@
-/******************************************************************************
-**              Copyright (C) 2005 Ezurio Ltd
-**
-** Project:     Universal Wireless
-**
-** Module:      RBFPUBLIC.H
-**
-** Notes:       Contains Ring Buffer definitions and utility functions
-**
-*******************************************************************************/
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Copyright (c) 2016, Laird                                                  ++
+//                                                                            ++
+// Permission to use, copy, modify, and/or distribute this software for any   ++
+// purpose with or without fee is hereby granted, provided that the above     ++
+// copyright notice and this permission notice appear in all copies.          ++
+//                                                                            ++
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES   ++
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF           ++
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR    ++
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES     ++
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN      ++
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR ++
+// IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                ++
+//                                                                            ++
+// SPDX-License-Identifier:ISC                                                ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                                                                            ++
+// Source to embed firmware upgrader functionality into a host system which   ++
+// interacts with specific Laird modules. The host can be a microcontroller   ++
+// or full blown OS based PC like Windows/Linex/Mac or other.                 ++
+//                                                                            ++
+// The source requires a C++ compiler and has been used to create utilities   ++
+// supplied by Laird.                                                         ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #if !defined(_RBFPUBLIC_H)     /* prevent multiple inclusions */
 #define _RBFPUBLIC_H
@@ -65,9 +82,9 @@ extern "C" {
 typedef struct SRbfBufferTag
 {
     union
-	{
-    	CHAR  *mpcData;         /* Points to the data - char*/
-    	UI8   *mpuData;         /* Points to the data - ui8 */
+    {
+        CHAR  *mpcData;         /* Points to the data - char*/
+        UI8   *mpuData;         /* Points to the data - ui8 */
     } u ;
     UI16   mnLen;               /* number of octets in the object */
 }
@@ -75,8 +92,8 @@ SRbfBuffer;
 
 /*----------------------------------------------------------------------------*/
 /*
-	The following struct can totally define all the data available
-	in a ring buffer
+    The following struct can totally define all the data available
+    in a ring buffer
 */
 typedef struct SRbfRingBufferTag
 {
@@ -176,10 +193,10 @@ RbfPubGetDataLen(
     );
 
 /*=============================================================================*/
-/* Returns true if the data in pRingBuf matches that in pSrc                   */ 
+/* Returns true if the data in pRingBuf matches that in pSrc                   */
 /* Case Sensitive                                                              */
 /*=============================================================================*/
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufCmpWithChar(
     SRbfRingBuffer *pRingBuf,
     CONST CHAR *pSrc
@@ -189,7 +206,7 @@ RbfPubRingBufCmpWithChar(
 /* Returns true if the data in pRingBuf matches that in pSrc                   */
 /* Case Insensitive                                                            */
 /*=============================================================================*/
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufCmpiWithChar(
     SRbfRingBuffer *pRingBuf,
     CONST CHAR *pSrc
@@ -199,7 +216,7 @@ RbfPubRingBufCmpiWithChar(
 /* Returns true if the data in pRingBuf matches that in pSrc                   */
 /* Case Insensitive                                                            */
 /*=============================================================================*/
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufCmpiWithCharLen(
     SRbfRingBuffer *pRingBuf,
     CONST CHAR *pSrc,
@@ -210,7 +227,7 @@ RbfPubRingBufCmpiWithCharLen(
 /* Returns true pSrc string is contained in the ring buffer at position        */
 /* Case Insensitive                                                            */
 /*=============================================================================*/
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufMatchSubString(
     SRbfRingBuffer *pRingBuf,
     UI16 nStartPos, /* in ring buffer */
@@ -222,7 +239,7 @@ RbfPubRingBufMatchSubString(
 /* returns true if the character matches that in the ring buffer at the */
 /* position specified */
 /*=============================================================================*/
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufMatchByte(
     SRbfRingBuffer *pRingBuf,
     UI16 nPos, /* in ring buffer */
@@ -233,7 +250,7 @@ RbfPubRingBufMatchByte(
 /*=============================================================================*/
 /* returns true if the ring buffer is empty */
 /*=============================================================================*/
-BOOLEAN 
+BOOLEAN
 RbfPubRingBufIsEmpty(
     SRbfRingBuffer *pRingBuf
     );

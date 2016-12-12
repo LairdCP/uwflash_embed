@@ -1,13 +1,30 @@
-/******************************************************************************
-**              Copyright (C) 2005 Ezurio Ltd
-**
-** Project:     Universal Wireless
-**
-** Module:		FRMPUBLIC.C
-**
-** Notes:       Contains the public interface to the run time engine
-**
-*******************************************************************************/
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Copyright (c) 2016, Laird                                                  ++
+//                                                                            ++
+// Permission to use, copy, modify, and/or distribute this software for any   ++
+// purpose with or without fee is hereby granted, provided that the above     ++
+// copyright notice and this permission notice appear in all copies.          ++
+//                                                                            ++
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES   ++
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF           ++
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR    ++
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES     ++
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN      ++
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR ++
+// IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                ++
+//                                                                            ++
+// SPDX-License-Identifier:ISC                                                ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                                                                            ++
+// Source to embed firmware upgrader functionality into a host system which   ++
+// interacts with specific Laird modules. The host can be a microcontroller   ++
+// or full blown OS based PC like Windows/Linex/Mac or other.                 ++
+//                                                                            ++
+// The source requires a C++ compiler and has been used to create utilities   ++
+// supplied by Laird.                                                         ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 /******************************************************************************/
 /* Target Build Definition Header File */
@@ -157,7 +174,7 @@ FrmPubProcessFile(
     FPullDataIntoCache FPullDataFunc,
     VOID *pFuncContext,
     UI8  *pCache,
-    UI32  nCacheLen 
+    UI32  nCacheLen
     )
 {
     UWRESULTCODE resultCode;
@@ -172,7 +189,7 @@ FrmPubProcessFile(
     pFrmContext = FrmPrvOpenManager(&resultCode);
     if((pFrmContext==NULL)||UWFAIL(resultCode))
     {
-        return resultCode; 
+        return resultCode;
     }
 
     resultCode=UWRESULTCODE_SUCCESS;
@@ -187,7 +204,7 @@ FrmPubProcessFile(
         fEOF = (resultCode==UWRESULTCODE_EOF) ? TRUE : FALSE;
 
         if( UWSUCCESS(resultCode) || (fEOF && nBlocklen) )
-           
+
         {
             /* And process the data */
             resultCode=FrmPrvProcessData(pFrmContext,
@@ -204,7 +221,7 @@ FrmPubProcessFile(
                 nUnprocessedLen = nBlocklen - nConsumed;
                 if(nUnprocessedLen && nConsumed)
                 {
-                    StdMEMCPY(pCache,&pCache[nConsumed],nUnprocessedLen);  
+                    StdMEMCPY(pCache,&pCache[nConsumed],nUnprocessedLen);
                 }
                 if( nUnprocessedLen >= nCacheLen )
                 {
@@ -233,7 +250,7 @@ FrmPubProcessFile(
         }
         else
         {
-            resultCode = UWRESULTCODE_FRM_PACKET_INCOMPLETE; 
+            resultCode = UWRESULTCODE_FRM_PACKET_INCOMPLETE;
         }
     }
 

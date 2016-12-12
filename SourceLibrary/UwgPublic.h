@@ -1,13 +1,30 @@
-/******************************************************************************
-**              Copyright (C) 2005 Ezurio Ltd
-**
-** Project:     Universal Wireless
-**
-** Module:      UWGPUBLIC.H
-**
-** Notes:
-**
-*******************************************************************************/
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Copyright (c) 2016, Laird                                                  ++
+//                                                                            ++
+// Permission to use, copy, modify, and/or distribute this software for any   ++
+// purpose with or without fee is hereby granted, provided that the above     ++
+// copyright notice and this permission notice appear in all copies.          ++
+//                                                                            ++
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES   ++
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF           ++
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR    ++
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES     ++
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN      ++
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR ++
+// IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                ++
+//                                                                            ++
+// SPDX-License-Identifier:ISC                                                ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                                                                            ++
+// Source to embed firmware upgrader functionality into a host system which   ++
+// interacts with specific Laird modules. The host can be a microcontroller   ++
+// or full blown OS based PC like Windows/Linex/Mac or other.                 ++
+//                                                                            ++
+// The source requires a C++ compiler and has been used to create utilities   ++
+// supplied by Laird.                                                         ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #if !defined(_UWGPUBLIC_H)     /* prevent multiple inclusions */
 #define _UWGPUBLIC_H
@@ -84,22 +101,22 @@ extern "C" {
 #define UWRESULTCODE_START_BLR_MODULE       0x3800
 #define UWRESULTCODE_START_USB_MODULE       0x3900
 #define UWRESULTCODE_START_BAT_MODULE       0x3a00
-#define UWRESULTCODE_START_BLU_MODULE       0x3b00 
+#define UWRESULTCODE_START_BLU_MODULE       0x3b00
 #define UWRESULTCODE_START_SYS_MODULE       0x3c00
-#define UWRESULTCODE_START_OBD_MODULE       0x3d00    
+#define UWRESULTCODE_START_OBD_MODULE       0x3d00
 #define UWRESULTCODE_START_BTH_MODULE       0x3e00
 #define UWRESULTCODE_START_NET_MODULE       0x4000
 #define UWRESULTCODE_START_COM_MODULE       0x4800
 #define UWRESULTCODE_START_FTP_MODULE       0x4900
 
 #define UWRESULTCODE_START_APP_RESPCODES    0xE000
-/* 
+/*
 ** Add more UWRESULTCODE_START_mmm_MODULE above
 **
 ** DO NOT USE 0xFF00 as a start value
-** 
+**
 ** ---------------------------------------------------------
-** WARNING - DANGER  || WARNING - DANGER || WARNING - DANGER 
+** WARNING - DANGER  || WARNING - DANGER || WARNING - DANGER
 ** ---------------------------------------------------------
 **
 ** Do NOT assign a start value in the range FF00 to FFFF inclusive
@@ -253,7 +270,7 @@ VOID UwgPubPostInitialise(VOID);
 /*=============================================================================*/
 /*=============================================================================*/
 #if defined(UWG_HEAP_DATA_ALLOC_FREE_CHECK)
-VOID * 
+VOID *
 UwgCheckedMalloc(
     UI32 size
     );
@@ -262,7 +279,7 @@ UwgCheckedMalloc(
 /*=============================================================================*/
 /*=============================================================================*/
 #if defined(UWG_HEAP_DATA_ALLOC_FREE_CHECK)
-VOID * 
+VOID *
 UwgCheckedMallocNoMaxCheck(
     UI32 size
     );
@@ -271,7 +288,7 @@ UwgCheckedMallocNoMaxCheck(
 /*=============================================================================*/
 /*=============================================================================*/
 #if defined(UWG_HEAP_DATA_ALLOC_FREE_CHECK)
-VOID 
+VOID
 UwgCheckedFree(
     VOID *pMemBlock
     );

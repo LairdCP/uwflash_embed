@@ -1,11 +1,30 @@
-/******************************************************************************
-**              Copyright (C) 2016 Laird
-**
-** Project:     UwFlash Upgrade Utility - Target based helper functions
-**
-** Module:      UwFlashTarget.CPP
-**
-*******************************************************************************/
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Copyright (c) 2016, Laird                                                  ++
+//                                                                            ++
+// Permission to use, copy, modify, and/or distribute this software for any   ++
+// purpose with or without fee is hereby granted, provided that the above     ++
+// copyright notice and this permission notice appear in all copies.          ++
+//                                                                            ++
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES   ++
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF           ++
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR    ++
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES     ++
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN      ++
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR ++
+// IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                ++
+//                                                                            ++
+// SPDX-License-Identifier:ISC                                                ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                                                                            ++
+// Source to embed firmware upgrader functionality into a host system which   ++
+// interacts with specific Laird modules. The host can be a microcontroller   ++
+// or full blown OS based PC like Windows/Linex/Mac or other.                 ++
+//                                                                            ++
+// The source requires a C++ compiler and has been used to create utilities   ++
+// supplied by Laird.                                                         ++
+//                                                                            ++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 /******************************************************************************/
 // CONDITIONAL COMPILE DEFINES
@@ -76,7 +95,7 @@ MiscGetTickCount(
 {
     /* TODO - return the current millisecond count */
 
-    //return GetTickCount();  
+    //return GetTickCount();
 }
 
 //=============================================================================
@@ -88,7 +107,7 @@ MiscGetTickCount(
 // called from the routine which calls this function, so don't call in this
 // function
 //=============================================================================
-bool 
+bool
 MiscPollBackgroundTarget(
     void
     )
@@ -113,13 +132,13 @@ MiscPollBackgroundTarget(
 //
 //=============================================================================
 void * /* this pointer will be used by StdFREAD() and StdFCLOSE() */
-StdFOPEN ( 
+StdFOPEN (
     const char * filename, /* meaningless - ignore */
     const char * mode /* ignore as this function only called to read file */
     )
 {
     /* TODO - initialise access to the .uwf file provided by Laird */
-    
+
     //return fopen(xxx,yyy);
 }
 
@@ -131,8 +150,8 @@ StdFOPEN (
 // returned in 'ptr' buffer
 //
 //=============================================================================
-size_t 
-StdFREAD( 
+size_t
+StdFREAD(
     void * ptr,     /* destination buffer pointer */
     size_t size,    /* (size * count) bytes are to be read */
     size_t count,   /* (size * count) bytes are to be read */
@@ -151,7 +170,7 @@ StdFREAD(
 //=============================================================================
 int
 StdFCLOSE(
-    void * stream  /* will have been returned by StdFOPEN() */ 
+    void * stream  /* will have been returned by StdFOPEN() */
     )
 {
     /* TODO - close access to the Laird provided uwf file  */

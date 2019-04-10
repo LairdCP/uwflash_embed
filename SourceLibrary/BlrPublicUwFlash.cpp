@@ -68,6 +68,9 @@
 #if TARGET_PLATFORM ==  TARGET_BL65X
 #include "TBootLdrBL65X.h"
 #endif
+#if TARGET_PLATFORM ==  TARGET_BL654X
+#include "TBootLdrBL654X.h"
+#endif
 
 /******************************************************************************/
 /* Local Defines*/
@@ -173,6 +176,11 @@ BlrPubOpenCPP(
 #if TARGET_PLATFORM ==  TARGET_BL65X
         case TARGET_BL65X:
             gpContext = (TBootLdrBase *) new TBootLdrBL65X();
+            break;
+#endif
+#if TARGET_PLATFORM ==  TARGET_BL654X
+        case TARGET_BL654X:
+            gpContext = (TBootLdrBase *) new TBootLdrBL654X();
             break;
 #endif
 #if TARGET_PLATFORM ==  TARGET_BT900

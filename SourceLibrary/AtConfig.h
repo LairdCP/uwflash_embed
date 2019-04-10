@@ -66,6 +66,7 @@ typedef enum
    ,TARGET_BL6XX                    /* Any BL6xx based hardware with new bootloader */
    ,TARGET_RM1XX                    /* LoRa - Central BLE Role */
    ,TARGET_BL65X                    /* Any BL65x based hardware*/
+   ,TARGET_BL654X                   /* Any BL654x based hardware*/
    ,TARGET_RM1XX_PE                 /* LoRa - Peripheral BLE Role */
 
    ,TARGET_BL600

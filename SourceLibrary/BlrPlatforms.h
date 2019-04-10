@@ -61,6 +61,7 @@ CONVENTIONS:-
 #define BLR_PLATFORM_ID_RM1XX                   0x58314D52  /* 'RM1X' */
 #define BLR_PLATFORM_ID_RM1XX_PE                0x50314D52  /* 'RM1P' */
 #define BLR_PLATFORM_ID_BL65X                   0x000B165F  /* Any BL65x platform with new laird bootloader */
+#define BLR_PLATFORM_ID_BL654X                  0x000B654F  /* Any BL654 platform with new laird bootloader */
 
 /*
 #define BLR_PLATFORM_ID_

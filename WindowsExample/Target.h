@@ -64,12 +64,19 @@
 #define SERIALPORT_DEVICE_NAME                      "16"
 #define UWF_FILENAME                                "RM1XX_PE.uwf"
 
-#else
+#elif 0
 #define TARGET_PLATFORM                             TARGET_BL65X
 #define TARGET_PLATFORM_STR                         "TARGET_BL65X"
 #define UART_BAUDRATE_NORMAL_OPERATION              (115200)
 #define SERIALPORT_DEVICE_NAME                      "16"
 #define UWF_FILENAME                                "BL652.uwf"
+
+#else
+#define TARGET_PLATFORM                             TARGET_BL654X
+#define TARGET_PLATFORM_STR                         "TARGET_BL654X"
+#define UART_BAUDRATE_NORMAL_OPERATION              (115200)
+#define SERIALPORT_DEVICE_NAME                      "16"
+#define UWF_FILENAME                                "BL654.uwf"
 
 #endif
 

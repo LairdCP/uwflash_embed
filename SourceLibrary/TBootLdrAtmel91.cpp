@@ -724,6 +724,7 @@ UWRESULTCODE TBootLdrAtmel91::SetBank(
         return UWRESULTCODE_UWF_INVALID_FLASH;
     }
     mCurrentBank = nBank;
+    mCurrentDevice = nFlashDevice;
     return UWRESULTCODE_SUCCESS;
 }
 
